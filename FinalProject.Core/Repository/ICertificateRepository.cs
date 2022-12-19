@@ -1,0 +1,13 @@
+﻿using FinalProject.Core.Data;
+using FinalProject.Core.DTO;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace FinalProject.Core.Repository
+{
+    public interface ICertificateRepository
+    {
+        List<MyCertificate> GetMyCertificate(int userId);
+    }
+}
