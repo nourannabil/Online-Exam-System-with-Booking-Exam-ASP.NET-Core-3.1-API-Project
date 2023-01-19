@@ -20,22 +20,12 @@ namespace FinalProject.Infra.Service
             _loginRepository = loginRepository; 
         }
 
-        public List<UserTable2> CheckUserEmail(string useremail)
-        {
-            return _registerRepository.CheckUserEmail(useremail);
-        }
-
-        public List<UserTable2> CheckUserName(string username)
-        {
-           return _registerRepository.CheckUserName(username);
-        }
-
         public bool Register(Register register)
         {
-            
+                // here will create a new Recoerd in UserTable 
                 _registerRepository.Register(register);
 
-                // here will create the Login
+                // here will create a new Recoerd in Login
                 LoginTable2 newLogin = new LoginTable2();
                 newLogin.Username = register.Username;
                 newLogin.Password = register.Password;
@@ -43,9 +33,18 @@ namespace FinalProject.Infra.Service
                 newLogin.Userid = register.UserId;
 
                 _loginRepository.Create(newLogin);
-                return true;
-         
 
+                return true;
+        }
+
+        public List<UserTable2> CheckUserEmail(string useremail)
+        {
+            return _registerRepository.CheckUserEmail(useremail);
+        }
+
+        public List<UserTable2> CheckUserName(string username)
+        {
+            return _registerRepository.CheckUserName(username);
         }
     }
 }
