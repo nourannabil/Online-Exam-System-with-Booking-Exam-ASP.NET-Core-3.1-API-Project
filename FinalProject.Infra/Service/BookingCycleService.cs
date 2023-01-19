@@ -69,6 +69,7 @@ namespace FinalProject.Infra.Service
                 // here will start create booking when the blance in enoguh 
                 if (balance >= examprice)
                 {
+                    // calling the method that responce to create a booking for user from _bookingCycleRepository
                     _bookingCycleRepository.BookingCycle(bookingCycle);
 
                     var availableTimes= _availableRepository.GetAll().ToList();
